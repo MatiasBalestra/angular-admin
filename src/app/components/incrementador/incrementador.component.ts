@@ -9,6 +9,9 @@ export class IncrementadorComponent {
 
 
   @Input() progreso: number = 40;
+  @Input() btnClass: string = 'btn btn-primary';
+
+
   @Output('valor') cambioValor: EventEmitter<number> = new EventEmitter();
 
   cambiarValor(valor: number) {
