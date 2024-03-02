@@ -9,6 +9,7 @@ import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component'
 import { PagesComponent } from './pages/pages.component';
 
 
+
 const routes: Routes = [
   {
     path: '', component: PagesComponent,
@@ -27,8 +28,8 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
