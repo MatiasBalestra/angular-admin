@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, } from '@angular/core';
+import { ChartData, ChartEvent, ChartType, Color, } from 'chart.js';
 
 @Component({
   selector: 'app-grafica1',
@@ -6,11 +7,51 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class Grafica1Component implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+export class Grafica1Component {
+
+  // Doughnut
+  public doughnutChartLabels: string[] = [
+    'Download Sales',
+    'In-Store Sales',
+    'Mail-Order Sales',
+  ];
+  public doughnutChartData: ChartData<'doughnut'> = {
+    labels: this.doughnutChartLabels,
+    datasets: [
+      {
+        data: [350, 450, 100],
+        /*         backgroundColor: ['#9BD0F5', '#9BD0F5', '#9BD0F5'],
+                /*         borderColor: ['#36A2EB', '#36A2EB', '#36A2EB'], */
+        /*         hoverBackgroundColor: ['#36A2EB', '#9BD0F5', '#36A2EB'], */
+      },
+    ],
+
+  };
+
+
+  public doughnutChartType: ChartType = 'doughnut';
+
+  // events
+  public chartClicked({
+    event,
+    active,
+  }: {
+    event: ChartEvent;
+    active: object[];
+  }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({
+    event,
+    active,
+  }: {
+    event: ChartEvent;
+    active: object[];
+  }): void {
+    console.log(event, active);
   }
 
 }
