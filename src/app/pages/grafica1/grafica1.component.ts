@@ -1,5 +1,10 @@
 import { Component, } from '@angular/core';
-import { ChartData, ChartEvent, ChartType, Color, } from 'chart.js';
+
+interface GraficaData {
+  labels: string[];
+  data: number[];
+  titulo: string;
+}
 
 @Component({
   selector: 'app-grafica1',
@@ -11,47 +16,31 @@ import { ChartData, ChartEvent, ChartType, Color, } from 'chart.js';
 
 export class Grafica1Component {
 
-  // Doughnut
-  public doughnutChartLabels: string[] = [
-    'Download Sales',
-    'In-Store Sales',
-    'Mail-Order Sales',
-  ];
-  public doughnutChartData: ChartData<'doughnut'> = {
-    labels: this.doughnutChartLabels,
-    datasets: [
-      {
-        data: [350, 450, 100],
-        /*         backgroundColor: ['#9BD0F5', '#9BD0F5', '#9BD0F5'],
-                /*         borderColor: ['#36A2EB', '#36A2EB', '#36A2EB'], */
-        /*         hoverBackgroundColor: ['#36A2EB', '#9BD0F5', '#36A2EB'], */
-      },
-    ],
-
+  data1: GraficaData = {
+    labels: ['Con Frijoles', 'Con Natilla', 'Con tocino'],
+    data: [24, 30, 46],
+    titulo: 'El pan se come con'
   };
 
+  data2: GraficaData = {
+    labels: ['Hombres', 'Mujeres', 'Abuelos'],
+    data: [4500, 6000, 10000],
+    titulo: 'Entrevistados'
+  };
 
-  public doughnutChartType: ChartType = 'doughnut';
+  data3: GraficaData = {
+    labels: ['Si', 'No'],
+    data: [95, 5],
+    titulo: '¿Le dan gases los frijoles?'
+  };
 
-  // events
-  public chartClicked({
-    event,
-    active,
-  }: {
-    event: ChartEvent;
-    active: object[];
-  }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({
-    event,
-    active,
-  }: {
-    event: ChartEvent;
-    active: object[];
-  }): void {
-    console.log(event, active);
-  }
-
+  data4: GraficaData = {
+    labels: ['No', 'Si'],
+    data: [85, 15],
+    titulo: '¿Le importa que le den gases?'
+  };
 }
+
+
+
+
