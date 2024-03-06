@@ -13,7 +13,10 @@ export class PromesasComponent implements OnInit {
   ngOnInit(): void {
 
     this.getUsuarios().then(usuarios =>
-      console.log(usuarios));
+      console.log(usuarios))
+      .catch(error => {
+        console.error('Error al obtener usuarios:', error);
+      });;
 
 
   }
@@ -21,9 +24,12 @@ export class PromesasComponent implements OnInit {
   getUsuarios() {
 
     const promesa = new Promise((resolve, reject) => {
-      fetch('https://reqres.in/api/users')
-        .then(resp => resp.json()
-          .then(body => resolve(body.data)));
+      setTimeout(() => {
+        fetch('https://reqres.in/api/users')
+          .then(resp => resp.json()
+            .then(body => resolve(body.data)))
+          .catch(error => reject(error));;
+      }, 9000);
     });
 
     return promesa;
